@@ -92,8 +92,8 @@
         <div>
           <h4>Location</h4>
           <h3>310 Jacobs Hall</h3>
-          <p>530 Ridge Road</p>
-          <p>Berkeley, CA 94709</p>
+          <p>2530 Ridge Road</p>
+          <p>Berkeley, CA 94720</p>
         </div>
       </div>
       <h2>Who will be there?</h2>
@@ -117,6 +117,21 @@
           <img src="/assets/sarah.jpg">
           <h3>Sarah Fathallah</h3>
           <p>Freelance designer &amp; researcher</p>
+        </div>
+        <div class="speaker__block">
+          <img src="/assets/yoshi.jpg">
+          <h3>Yoshi Yoshitani</h3>
+          <p>Concept artist &amp; illustrator, IDEO</p>
+        </div>
+        <div class="speaker__block">
+          <img src="/assets/nino.jpg">
+          <h3>Nino Panes</h3>
+          <p>Interaction designer, graduate student</p>
+        </div>
+        <div class="speaker__block">
+          <img src="/assets/eunsol.jpg">
+          <h3>Eunsol Byun</h3>
+          <p>Interaction designer, Punchcut</p>
         </div>
         <div class="speaker__block">
           <img src="">
@@ -166,8 +181,8 @@
               <h3>9:45 AM</h3>
             </td>
             <td>
-              <h3>Leveraging Unique Strengths</h3>
-              <p>Emilia Dallman, Facebook</p>
+              <h3>The Road Not Taken</h3>
+              <p>Nino Panes, CCA Interaction Experience Design Graduate Student</p>
             </td>
           </tr>
           <tr>
@@ -175,7 +190,7 @@
               <h3>10:15 AM</h3>
             </td>
             <td>
-              <h3>Design with Users in Mind</h3>
+              <h3>Designing with Users in Mind</h3>
               <p>Kegeng Liu, Course Hero</p>
             </td>
           </tr>
@@ -204,12 +219,12 @@
             <td width="150px">
               <h3>12:00 PM</h3>
               <p>210 Jacobs</p>
-              <!-- <p> <br>220 Jacobs </p> -->
+              <p> <br>220 Jacobs </p>
             </td>
             <td>
               <h3>Workshops</h3>
               <p><b>Planning for Rapid Prototyping</b> <br>Sarah Fathallah</p>
-              <!-- <p><b>Elements of Type</b> <br>Carla Poirier, Everlane</p> -->
+              <p><b>Cheatstorming</b> <br>Nino Panes, Eunsol Byun</p>
             </td>
           </tr>
           <tr>
@@ -272,25 +287,145 @@
     <script type="text/javascript" src="/fabric-brush.js"></script>
     <script>
       (function() {
-        if ("ontouchstart" in document.documentElement) {
-          return;
-        }
+        var colors = {
+          "#EC248F": 0.1,
+          "#3DC0EF": 0.1,
+          "#F8EC38": 0.5
+        };
         var canvas = new fabric.Canvas('canvas', {
           isDrawingMode: true,
           hoverCursor: "auto",
           defaultCursor: "default"
         })
-        .setWidth(window.screen.width)
-        .setHeight(window.screen.height);
+        .setWidth(window.innerWidth)
+        .setHeight(window.innerHeight);
+
+        var colorKeys = Object.keys(colors);
+        var color = colorKeys[Math.floor(Math.random() * colorKeys.length)];
         canvas.freeDrawingBrush = new fabric.CrayonBrush(canvas, {
           width: 70,
-          opacity: 0.5,
-          color: "#F8EC38"
+          opacity: colors[color],
+          color: color
         });
         canvas.isDrawingMode = true;
-        canvas.on('mouse:move', function(opt) {
-          canvas._onMouseDownInDrawingMode(opt.e);
+        if (!("ontouchstart" in document.documentElement)) {
+          canvas.on("mouse:move", function(opt) {
+            canvas._onMouseDownInDrawingMode(opt.e);
+          });
+        } else {
+          document.querySelector(".canvas-container").style.pointerEvents = "none";
+          var x = document.documentElement.clientWidth / 2,
+            y = document.documentElement.clientHeight / 2,
+            vx = 0, vy = 0,
+            ax = 0, ay = 0;
+
+          // Much taken from www.albertosarullo.com/demos/accelerometer/
+          // Thank you :^)
+          if (window.DeviceMotionEvent != undefined) {
+            window.ondevicemotion = function(e) {
+              ax = event.accelerationIncludingGravity.x * 5;
+              ay = event.accelerationIncludingGravity.y * 5;
+            }
+
+            setInterval(function() {
+              var landscapeOrientation = window.innerWidth / window.innerHeight > 1;
+              if (landscapeOrientation) {
+                vx = vx + ay;
+                vy = vy + ax;
+              } else {
+                vy = vy - ay;
+                vx = vx + ax;
+              }
+              vx = vx * 0.98;
+              vy = vy * 0.98;
+              y = parseInt(y + vy / 50);
+              x = parseInt(x + vx / 50);
+
+              boundingBoxCheck();
+              var upperCanvas = document.querySelector(".upper-canvas");
+              var syntheticEvent = syntheticMouseEvent(upperCanvas, {
+                x: x,
+                y: y,
+                target: upperCanvas,
+                relatedTarget: upperCanvas
+              });
+              // canvas.isDrawingMode = true;
+              canvas._onMouseDownInDrawingMode(syntheticEvent);
+            }, 20);
+          } 
+
+
+          function boundingBoxCheck(){
+            // bouncy!
+            if (x < 0) {
+              x = 0; vx = -vx;
+            }
+            if (y < 0) {
+              y = 0; vy = -vy;
+            }
+            if (x > window.innerWidth) {
+              x = window.innerWidth;
+              vx = -vx;
+            }
+            if (y > window.innerHeight) {
+              y = window.innerHeight;
+              vy = -vy;
+            }
+          }
+        }
+
+        window.addEventListener("resize", () => {
+          canvas.setWidth(window.innerWidth);
+          canvas.setHeight(window.innerHeight);
         });
+
+        // Thank you to https://stackoverflow.com/questions/6157929/how-to-simulate-a-mouse-click-using-javascript
+        // for this magic!
+        function syntheticMouseEvent(target, options) {
+          var event = target.ownerDocument.createEvent('MouseEvent'),
+              options = options || {},
+              opts = {
+                type: "mousemove",
+                canBubble: true,
+                cancelable: true,
+                view: target.ownerDocument.defaultView,
+                detail: 1,
+                screenX: options.x,
+                screenY: options.y,
+                clientX: options.x,
+                clientY: options.y,
+                ctrlKey: false,
+                altKey: false,
+                shiftKey: false,
+                metaKey: false,
+                button: 0,
+                relatedTarget: null,
+              };
+          for (var key in options) {
+            if (options.hasOwnProperty(key)) {
+              opts[key] = options[key];
+            }
+          }
+          event.initMouseEvent(
+              opts.type,
+              opts.canBubble,
+              opts.cancelable,
+              opts.view,
+              opts.detail,
+              opts.screenX,
+              opts.screenY,
+              opts.clientX,
+              opts.clientY,
+              opts.ctrlKey,
+              opts.altKey,
+              opts.shiftKey,
+              opts.metaKey,
+              opts.button,
+              opts.relatedTarget
+          );
+          target.dispatchEvent(event);
+          return event;
+        }
       })();
     </script>
   </body>

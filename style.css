@@ -19,9 +19,12 @@ div {
   height: 110vh;
 }
 
+.upper-canvas {
+  cursor: default !important;
+}
+
 .canvas-container {
   pointer-events: auto;
-  cursor: default;
   height: 100% !important;
   left: 0;
   overflow: hidden;
@@ -34,7 +37,7 @@ div {
 }
 
 .main__header {
-  height: 100vh;
+  /*height: 100vh;*/
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -297,6 +300,7 @@ h2.subhero--big {
   font-size: 16pt;
   font-weight: 700;
   border-radius: 5px;
+  pointer-events: auto;
 }
 
 .register__container h2 {
@@ -305,6 +309,7 @@ h2.subhero--big {
 }
 
 .logo {
+  pointer-events: auto;
   display: inline-block;
   margin-top: 30px;
   margin-bottom: 30px;
@@ -326,5 +331,9 @@ h2.subhero--big {
 
   .squiggle {
     opacity: 0.2;
+  }
+
+  h2.subhero__big {
+    font-size: 24pt;
   }
 }
