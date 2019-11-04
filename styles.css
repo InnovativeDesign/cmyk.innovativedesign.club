@@ -328,15 +328,24 @@ h2.subhero--big {
 }
 
 .btn {
+  margin-top: 48px;
   display: inline-block;
   text-decoration: none;
-  background-color: black;
+  background-color: #F5939D;
   padding: 10px 20px;
   color: white;
   font-size: 16pt;
   font-weight: 700;
   border-radius: 5px;
   pointer-events: auto;
+  -webkit-transition: all 0.4s ease-in-out;
+	-moz-transition: all 0.4s ease-in-out;
+	-o-transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out;
+}
+
+.btn:hover {
+  background-color: #E23B52;
 }
 
 .register__container h2 {
