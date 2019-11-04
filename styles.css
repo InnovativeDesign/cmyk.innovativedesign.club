@@ -283,6 +283,7 @@ h2.subhero--big {
 .speaker__block img {
   max-width: 100%;
   margin-bottom: 5px;
+  border-radius: 5px;
 }
 
 .speaker__block h3,
