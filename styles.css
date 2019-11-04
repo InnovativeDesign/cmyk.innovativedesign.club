@@ -1,6 +1,9 @@
 body {
-  background-color: #F7F4E8;
-  font-family: "Avenir Next", "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /* background-color: #F5939C; */
+  background-color: #90D5DC;
+  color: #FFF;
+  font-family: sofia-pro, sans-serif;
+  /* font-family: "Avenir Next", "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; */
   margin: 0;
   cursor: pointer;
 }
@@ -12,32 +15,8 @@ div {
   pointer-events: none;
 }
 
-#canvas {
-  position: fixed;
-  z-index: -5;
-  width: 100%;
-  height: 110vh;
-}
-
-.upper-canvas {
-  cursor: default !important;
-}
-
-.canvas-container {
-  pointer-events: auto;
-  height: 100% !important;
-  left: 0;
-  overflow: hidden;
-  position: fixed !important;
-  top: 0;
-  width: 100% !important;
-  z-index: 0;
-  /*background-color: #F7F4E8;*/
-  -webkit-user-select: initial !important;
-}
-
 .main__header {
-  /*height: 100vh;*/
+  /* height: 100vh; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -51,34 +30,45 @@ div {
   font-size: 32pt;
   margin: 0;
   text-align: center;
+  font-weight: 900;
 }
 
-.speech__intro {
+.bubbles {
+  position: absolute;
+  z-index: -1;
+  top: 90px;
+}
+
+.bubbles img {
+  width: 360px;
+}
+
+.bubble__intro {
   /*position: relative;*/
   z-index: -1;
   margin: 0;
-  background-image: url(/assets/2x/red-speech.png);
-  background-size: 100%;
+  /* background-image: url(assets/img/14.png); */
+  background-size: 115%;
   background-repeat: no-repeat;
   color: white;
   min-height: 170px;
   width: 100px;
-  transform: translateX(-100px) translateY(100px);
+  transform: translateX(-110px) translateY(100px);
 }
 
-.speech__intro h3,
-.speech__location h3 {
+.bubble__intro h3,
+.bubble__location h3 {
   width: 50%;
   height: 100%;
   font-size: 10pt;
   text-transform: uppercase;
-  color: #F7F4E8;
+  color: #FFF;
   padding-top: 20px;
   padding-left: 10px;
 }
 
-.speech__location {;
-  background-image: url(/assets/2x/blue-speech.png);
+.bubble__location {
+  /* background-image: url(assets/img/13.png); */
   background-size: 80%;
   background-repeat: no-repeat;
   min-height: 160px;
@@ -86,7 +76,7 @@ div {
   z-index: -1;
 }
 
-.speech__location h3 {
+.bubble__location h3 {
   padding-left: 20px;
   font-size: 12pt;
   margin: 0;
@@ -97,28 +87,30 @@ div {
 }
 
 .animate__text:after {
+  background-color: #FFF;
   position: absolute;
-  left: 2.5px;
-  top: 35pt;
+  left: 0px;
+  top: 54px;
   content: "";
-  height: 10px;
-  width: 35px;
+  height: 4px;
+  width: 32px;
 }
 
 .c__text .animate__text:after {
-  background-color: #3DC0EF;
+  left: 1px;
 }
 
 .m__text .animate__text:after {
-  background-color: #EC248F;
+  width: 36px;
+  left: 1px;
 }
 
 .y__text .animate__text:after {
-  background-color: #F8EC38;
+  left: -2px;
 }
 
 .k__text .animate__text:after {
-  background-color: #000;
+  left: -1px;
 }
 
 .subhero__container {
@@ -138,60 +130,99 @@ h2.subhero--big {
   font-weight: 700;
 }
 
-.hand {
+@media only screen and (max-width: 1200px) {
+  .hand__container-1 {
+    visibility: hidden;
+    width: 0px;
+  }
+
+  .hand__container-2 {
+    visibility: hidden;
+    width: 0px;
+  }
+
+  .hand__container-3 {
+    visibility: hidden;
+    width: 0px;
+  }
+
+  .hand__container-4 {
+    visibility: hidden;
+    width: 0px;
+  }
+}
+
+.hand__container {
   position: absolute;
-  z-index: -3;
-  max-width: 130px;
-  opacity: 0.2;
+  z-index: -2;
 }
 
-.c__hand {
-  top: 30px;
-  /*left: 50px;*/
-  left: 10%;
+.hand__container-1 {
+  top: 100px;
+  left: 140px;
 }
 
-.m__hand {
-  top: 150px;
-  /*right: 120px;*/
-  right: 20%;
-  max-width: 120px;
+.hand__container-1 .hand {
+  position: absolute;
+  width: 350px;
 }
 
-.y__hand {
-  bottom: 100px;
-  /*left: 120px;*/
-  left: 15%;
-  max-width: 180px;
+.hand__container-1 .bubble {
+  position: absolute;
+  width: 310px;
+  top: 24px;
+  left: -16px;
 }
 
-.k__hand {
-  bottom: 30px;
-  /*right: 50px;*/
-  right: 10%;
-  max-width: 100px;
+.hand__container-2 {
+  top: 400px;
+  left: 60px;
 }
 
-.squiggle {
-  position: fixed;
-  z-index: -1;
-  max-height: 150px;
+.hand__container-2 .hand {
+  position: absolute;
+  width: 350px;
 }
 
-.x__squiggle {
-  top: 30%;
-  right: 50px;
-  max-height: 50px;
+.hand__container-2 .bubble {
+  position: absolute;
+  width: 280px;
+  top: 60px;
+  left: 20px;
 }
 
-.red__squiggle {
-  bottom: 20%;
-  left: 40px;
+.hand__container-3 {
+  top: 450px;
+  right: 400px;
 }
 
-.blue__squiggle {
-  right: 20px;
-  top: 40%;
+.hand__container-3 .hand {
+  position: absolute;
+  width: 350px;
+}
+
+.hand__container-3 .bubble {
+  position: absolute;
+  width: 300px;
+  left: 20px;
+  top: 28px;
+}
+
+.hand__container-4 {
+  top: 100px;
+  right: 500px;
+}
+
+.hand__container-4 .hand {
+  position: absolute;
+  width: 350px;
+}
+
+.hand__container-4 .bubble {
+  position: absolute;
+  width: 300px;
+  left: 90px;
+  top: 75px;
 }
 
 .body__container {
@@ -209,6 +240,10 @@ h2.subhero--big {
   /*margin-top: 0px;*/
 }
 
+.section-break {
+  margin-bottom: 50px;
+}
+
 .timelocation__container {
   display: flex;
   margin-top: 30px;
@@ -223,7 +258,7 @@ h2.subhero--big {
 .timelocation__container > div h4 {
   text-transform: uppercase;
   margin-bottom: 5px;
-  opacity: 0.6;
+  /* opacity: 0.8; */
   font-size: 10pt;
 }
 
@@ -239,10 +274,10 @@ h2.subhero--big {
 }
 
 .speaker__block {
-  flex: 1 0 150px;
+  flex: 1 0 250px;
   margin-right: 30px;
   margin-top: 30px;
-  max-width: 150px;
+  max-width: 250px;
 }
 
 .speaker__block img {
@@ -252,6 +287,7 @@ h2.subhero--big {
 
 .speaker__block h3,
 .speaker__block p {
+  text-align: center;
   margin: 0;
 }
 
@@ -284,7 +320,7 @@ h2.subhero--big {
 }
 
 .table td {
-  border-top: 1px solid rgba(236, 36, 143, 0.2);
+  border-top: 1px solid #FFF;
 }
 
 .register__container {
@@ -320,17 +356,22 @@ h2.subhero--big {
   max-width: 50px;
 }
 
+.footer {
+  display: flex;
+  justify-content: center;
+}
+
+.collab {
+  width: 250px;
+}
+
+.collab img {
+  max-width: 250px;
+}
+
 @media only screen and (max-width: 600px) {
   .speaker__block {
     margin-right: 0px;
-  }
-
-  .hand {
-    opacity: 0.1;
-  }
-
-  .squiggle {
-    opacity: 0.2;
   }
 
   h2.subhero__big {
