@@ -138,22 +138,22 @@ h2.subhero--big {
 
 @media only screen and (max-width: 1200px) {
   .hand__container-1 {
-    visibility: hidden;
+    display: none;
     width: 0px;
   }
 
   .hand__container-2 {
-    visibility: hidden;
+    display: none;
     width: 0px;
   }
 
   .hand__container-3 {
-    visibility: hidden;
+    display: none;
     width: 0px;
   }
 
   .hand__container-4 {
-    visibility: hidden;
+    display: none;
     width: 0px;
   }
 }
