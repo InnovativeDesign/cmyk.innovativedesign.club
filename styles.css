@@ -11,10 +11,10 @@ a {
   color: #F5939D;
   text-decoration: none;
   font-weight: 600;
-  -webkit-transition: all 0.4s ease-in-out;
-	-moz-transition: all 0.4s ease-in-out;
-	-o-transition: all 0.4s ease-in-out;
-	transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+	-moz-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
 }
 
 a:hover {
@@ -330,10 +330,6 @@ h2.subhero--big {
   border-top: 1px solid #FFF;
 }
 
-.register__container {
-  text-align: center;
-}
-
 .btn {
   margin-top: 48px;
   display: inline-block;
@@ -354,23 +350,6 @@ h2.subhero--big {
 .btn:hover {
   color: #FFF;
   background-color: #E23B52;
-}
-
-.register__container h2 {
-  font-size: 16pt;
-  font-weight: 400;
-}
-
-.logo {
-  pointer-events: auto;
-  display: inline-block;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  width: 50px;
-}
-
-.logo img {
-  max-width: 50px;
 }
 
 .footer {
@@ -394,4 +373,83 @@ h2.subhero--big {
   h2.subhero__big {
     font-size: 24pt;
   }
+}
+
+/* Slider CSS */
+.slider {
+	position: relative;
+	z-index: 200;
+	width: 100%;
+	margin: 0 auto;
+	padding: 0 0 5em;
+	text-align: center;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-touch-callout: none;
+	-khtml-user-select: none;
+}
+
+.slide {
+	position: absolute;
+	top: 0;
+	visibility: hidden;
+	width: 100%;
+	opacity: 0;
+}
+
+.slide--current {
+	position: relative;
+	z-index: 100;
+	visibility: visible;
+	opacity: 1;
+}
+
+.slide__mover {
+	position: relative;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+}
+
+.slider__nav {
+	position: absolute;
+	bottom: 2em;
+	width: 100%;
+	text-align: center;
+}
+
+.photo__block {
+  max-width: 600px;
+}
+
+.photo__block img {
+  border-radius: 5px;
+  max-width: 100%;
+}
+
+.button {
+	font-size: 1.31em;
+	position: relative;
+	display: inline-block;
+	overflow: hidden;
+	margin: 0 25px;
+	padding: 0;
+	cursor: pointer;
+	color: #5c5edc;
+	border: none;
+  background: none;
+  -webkit-transition: all 0.2s ease-in-out;
+	-moz-transition: all 0.2s ease-in-out;
+	-o-transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
+}
+
+.button:focus {
+	outline: none;
+}
+
+.button:hover {
+	color: #fff;
 }
