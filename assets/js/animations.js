@@ -10,7 +10,7 @@ heroTimeline
   delay: function(el, index) {
     return index * 200
   },
-  duration: 1000,
+  duration: 800,
 })
 .add({
   targets: '.main__header h1',
@@ -19,7 +19,7 @@ heroTimeline
   delay: function(el, index) {
     return index * 250
   },
-  duration: 1000,
+  duration: 800,
 }, "-=500")
 .add({
   targets: '.bubble__intro h3',
@@ -45,7 +45,7 @@ heroTimeline
   opacity: [0, 1],
   duration: 500,
   easing: 'easeOutQuart',
-}, "-=300")
+}, "-=600")
 .add({
   targets: '.hand__container img',
   scale: [0, 1],
@@ -54,4 +54,10 @@ heroTimeline
     return index * 150
   },
   duration: 500,
-})
+}, "-=300")
+.add({
+  targets: '.body__container',
+  opacity: [0, 1],
+  duration: 2000,
+  easing: 'easeOutQuart',
+});
