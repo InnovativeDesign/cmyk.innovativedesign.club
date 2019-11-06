@@ -53,7 +53,6 @@ a:hover {
   /*position: relative;*/
   z-index: -1;
   margin: 0;
-  /* background-image: url(assets/img/14.png); */
   background-size: 115%;
   background-repeat: no-repeat;
   color: white;
@@ -74,7 +73,6 @@ a:hover {
 }
 
 .bubble__location {
-  /* background-image: url(assets/img/13.png); */
   background-size: 80%;
   background-repeat: no-repeat;
   min-height: 160px;
