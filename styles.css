@@ -1,6 +1,7 @@
 body {
   /* background-color: #F5939C; */
-  background-color: #90D5DC;
+  /* background-color: #90D5DC; */
+  background-color: rgb(118, 208, 218);
   color: #FFF;
   font-family: sofia-pro, sans-serif;
   /* font-family: "Avenir Next", "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; */
@@ -8,7 +9,7 @@ body {
 }
 
 a {
-  color: rgb(241, 67, 84);
+  color: rgb(226, 72, 87);
   text-decoration: none;
   font-weight: 600;
   -webkit-transition: all 0.2s ease-in-out;
