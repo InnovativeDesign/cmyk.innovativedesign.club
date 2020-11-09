@@ -1,15 +1,16 @@
 body {
   /* background-color: #F5939C; */
   /* background-color: #90D5DC; */
-  background-color: rgb(118, 208, 218);
-  color: #FFF;
+  background-color: #fc3b36;
+  color: #fee3a4;
   font-family: sofia-pro, sans-serif;
   /* font-family: "Avenir Next", "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; */
   margin: 0;
+  overflow-x: hidden;
 }
 
 a {
-  color: rgb(226, 72, 87);
+  color: #09316d;
   text-decoration: none;
   font-weight: 600;
   -webkit-transition: all 0.2s ease-in-out;
@@ -68,7 +69,7 @@ a:hover {
   height: 100%;
   font-size: 10pt;
   text-transform: uppercase;
-  color: #FFF;
+  color: #fee3a4;
   padding-top: 20px;
   padding-left: 10px;
 }
@@ -157,77 +158,85 @@ h2.subhero--big {
   }
 }
 
+.hand {
+  max-height: 60vh;
+}
+
 .hand__container {
   position: absolute;
   z-index: -2;
 }
 
 .hand__container-1 {
-  top: 100px;
-  left: 140px;
+  top: 25vh;
+  left: 10vw;
+  max-height: 50vh;
 }
 
 .hand__container-1 .hand {
   position: absolute;
-  width: 350px;
+  height: 350px;
 }
 
 .hand__container-1 .bubble {
   position: absolute;
-  width: 310px;
-  top: 24px;
-  left: -16px;
+  width: 750px;
+  top: -380px;
+  left: -420px;
 }
 
 .hand__container-2 {
-  top: 400px;
-  left: 60px;
+  top: 450px;
+  left: 10vw;
+  max-height: 50vh;
 }
 
 .hand__container-2 .hand {
   position: absolute;
-  width: 350px;
+  height: 350px;
 }
 
 .hand__container-2 .bubble {
   position: absolute;
   width: 280px;
   top: 60px;
-  left: 20px;
+  left: -50px;
 }
 
 .hand__container-3 {
   top: 450px;
-  right: 400px;
+  right: 25vw;
+  max-height: 50vh;
 }
 
 .hand__container-3 .hand {
   position: absolute;
-  width: 350px;
+  height: 350px;
 }
 
 .hand__container-3 .bubble {
   position: absolute;
-  width: 300px;
-  left: 20px;
-  top: 28px;
+  width: 280px;
+  top: 250px;
+  left: -50px;
 }
 
 .hand__container-4 {
-  top: 100px;
-  right: 500px;
+  top: 25vh;
+  right: 25vw;
+  max-height: 50vh;
 }
 
 .hand__container-4 .hand {
   position: absolute;
-  width: 350px;
+  height: 350px;
 }
 
 .hand__container-4 .bubble {
   position: absolute;
   width: 300px;
-  left: 90px;
-  top: 75px;
+  left: 0px;
+  top: -200px;
 }
 
 .body__container {
@@ -326,14 +335,14 @@ h2.subhero--big {
 }
 
 .table td {
-  border-top: 1px solid #FFF;
+  border-top: 1px solid #09316d;
 }
 
 .btn {
   margin-top: 48px;
   display: inline-block;
   text-decoration: none;
-  background-color: #F5939D;
+  background-color: #09316d;
   padding: 10px 20px;
   color: #FFF;
   font-size: 16pt;
@@ -348,7 +357,7 @@ h2.subhero--big {
 
 .btn:hover {
   color: #FFF;
-  background-color: #E23B52;
+  background-color: #000;
 }
 
 .footer {
@@ -437,7 +446,7 @@ h2.subhero--big {
 	margin: 0 25px;
 	padding: 0;
 	cursor: pointer;
-	color: #5c5edc;
+	color: #09316d;
 	border: none;
   background: none;
   -webkit-transition: all 0.2s ease-in-out;
