@@ -47,6 +47,13 @@ heroTimeline
   easing: 'easeOutQuart',
 }, "-=600")
 .add({
+  targets: 'a',
+  scale: [0, 1],
+  opacity: [0, 1],
+  duration: 500,
+  easing: 'easeOutQuart',
+}, "-=600")
+.add({
   targets: '.hand__container img',
   scale: [0, 1],
   opacity: [0, 1],

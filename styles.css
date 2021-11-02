@@ -1,18 +1,37 @@
+@font-face {
+  font-family: 'Mitr';
+  src:  url(assets/fonts/Mitr-Regular.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Pangolin';
+  src:  url(assets/fonts/Pangolin-Regular.ttf) format('truetype');
+}
+
 body {
   /* background-color: #F5939C; */
   /* background-color: #90D5DC; */
-  background-color: #fc3b36;
-  color: #fee3a4;
-  font-family: sofia-pro, sans-serif;
+  background-color: #e9e1d4;
+  color: #2c2222;
+  font-family: 'Pangolin', sans-serif;
   /* font-family: "Avenir Next", "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; */
   margin: 0;
   overflow-x: hidden;
 }
 
+h1 {
+  font-family: Mitr;
+}
+
+h2 {
+  color: #567be0;
+}
+
 a {
-  color: #09316d;
+  color: #3c7d43;
   text-decoration: none;
   font-weight: 600;
+  cursor: pointer;
   -webkit-transition: all 0.2s ease-in-out;
 	-moz-transition: all 0.2s ease-in-out;
 	-o-transition: all 0.2s ease-in-out;
@@ -20,7 +39,7 @@ a {
 }
 
 a:hover {
-  color: rgb(255, 129, 141);
+  color: #fa7ba1;
 }
 
 .main__header {
@@ -29,7 +48,8 @@ a:hover {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  margin-top: -50px;
+  /* margin-top: -50px; */
+  height: 100vh;
 }
 
 .main__header h1 {
@@ -44,11 +64,12 @@ a:hover {
 .bubbles {
   position: absolute;
   z-index: -1;
-  top: 90px;
+  bottom: 0px;
 }
 
 .bubbles img {
-  width: 360px;
+  width: 100%;
+  opacity: 0.2;
 }
 
 .bubble__intro {
@@ -69,7 +90,7 @@ a:hover {
   height: 100%;
   font-size: 10pt;
   text-transform: uppercase;
-  color: #fee3a4;
+  color: #3c7d43;
   padding-top: 20px;
   padding-left: 10px;
 }
@@ -90,6 +111,7 @@ a:hover {
 
 .animate__text {
   position: relative;
+  font-family: Mitr;
 }
 
 .animate__text:after {
@@ -100,6 +122,10 @@ a:hover {
   content: "";
   height: 4px;
   width: 32px;
+}
+
+.main__header h1 {
+  color: #baa6a1;
 }
 
 .c__text .animate__text:after {
@@ -159,7 +185,7 @@ h2.subhero--big {
 }
 
 .hand {
-  max-height: 60vh;
+  /* max-width: 10vw; */
 }
 
 .hand__container {
@@ -168,42 +194,42 @@ h2.subhero--big {
 }
 
 .hand__container-1 {
-  top: 25vh;
-  left: 10vw;
-  max-height: 50vh;
+  top: 30vh;
+  left: 20vw;
+  max-height: 10vh;
 }
 
-.hand__container-1 .hand {
+.hand__container-1 .yarn {
   position: absolute;
-  height: 350px;
+  height: 150px;
 }
 
-.hand__container-1 .bubble {
+.hand__container-1 .cat {
   position: absolute;
-  width: 750px;
-  top: -380px;
-  left: -420px;
+  width: 300px;
+  top: -100px;
+  left: -100px;
 }
 
-.hand__container-2 {
-  top: 450px;
-  left: 10vw;
-  max-height: 50vh;
+.hand__container-4 {
+  top: 30vh;
+  right: 20vw;
+  max-height: 10vh;
 }
 
-.hand__container-2 .hand {
+.hand__container-4 .fishbowl {
   position: absolute;
-  height: 350px;
+  height: 200px;
 }
 
-.hand__container-2 .bubble {
+.hand__container-4 .shamrock {
   position: absolute;
   width: 280px;
-  top: 60px;
-  left: -50px;
+  top: -120px;
+  left: -75px;
 }
 
-.hand__container-3 {
+/* .hand__container-3 {
   top: 450px;
   right: 25vw;
   max-height: 50vh;
@@ -237,15 +263,15 @@ h2.subhero--big {
   width: 300px;
   left: 0px;
   top: -200px;
-}
+} */
 
 .body__container {
   max-width: 640px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 50px;
-  padding-left: 20px;
-  padding-right: 20px;
+  /* padding-left: 20px;
+  padding-right: 20px; */
   z-index: 1;
   position: relative;
 }
@@ -342,7 +368,7 @@ h2.subhero--big {
   margin-top: 48px;
   display: inline-block;
   text-decoration: none;
-  background-color: #09316d;
+  background-color: #fa7ba1;
   padding: 10px 20px;
   color: #FFF;
   font-size: 16pt;
@@ -357,7 +383,7 @@ h2.subhero--big {
 
 .btn:hover {
   color: #FFF;
-  background-color: #000;
+  background-color: #2c2222;
 }
 
 .footer {
@@ -455,10 +481,14 @@ h2.subhero--big {
 	transition: all 0.2s ease-in-out;
 }
 
+.button img {
+  width: 50px;
+}
+
 .button:focus {
 	outline: none;
 }
 
 .button:hover {
-	color: #fff;
+	transform: scale(1.2);
 }
