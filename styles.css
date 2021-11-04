@@ -334,6 +334,7 @@ h2.subhero--big {
 
 .table {
   border-spacing: 0;
+  width: 100%;
 }
 
 .table h3 {
@@ -343,6 +344,7 @@ h2.subhero--big {
 }
 
 .table p {
+  color: #3c7d43;
   margin: 0;
 }
 
